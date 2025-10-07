@@ -1,0 +1,18 @@
+id: tenant_git_sync
+namespace: system
+
+tasks:
+  - id: tenant
+    type: io.kestra.plugin.git.TenantSync
+    sourceOfTruth: KESTRA
+    whenMissingInSource: KEEP
+    url: https://github.com/wrussell1999/video-example
+    branch: main
+    protectedNamespaces:
+      - system
+    kestraUrl: http://localhost:8080
+    auth:
+      username: wrussell@kestra.io
+      password: "{{ secret('KESTRA_PASSWORD') }}"
+    username: wrussell1999
+    password: "{{ secret('GITHUB_ACCESS_TOKEN') }}"

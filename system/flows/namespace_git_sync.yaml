@@ -1,0 +1,15 @@
+id: namespace_git_sync
+namespace: system
+
+tasks:
+  - id: namespace
+    type: io.kestra.plugin.git.NamespaceSync
+    namespace: company.team
+    sourceOfTruth: KESTRA
+    whenMissingInSource: KEEP
+    url: https://github.com/wrussell1999/git-namespace-sync
+    branch: main
+    protectedNamespaces:
+      - system
+    username: wrussell1999
+    password: "{{ secret('GITHUB_ACCESS_TOKEN') }}"

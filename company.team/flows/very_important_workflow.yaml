@@ -1,0 +1,7 @@
+id: very_important_workflow
+namespace: company.team
+
+tasks:
+  - id: log_message
+    type: io.kestra.plugin.core.log.Log
+    message: Hello World! 🚀
